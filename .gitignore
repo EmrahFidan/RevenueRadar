@@ -25,5 +25,10 @@ npm-debug.log*
 Thumbs.db
 .DS_Store
 
-# Test data (keep sample)
+# Test data
 test_data.csv
+backend/sample_*.xlsx
+backend/sample_*.csv
+
+# PDF files (personal notes)
+*.pdf

@@ -26,10 +26,25 @@ app = FastAPI(
     version="2.0"
 )
 
-# CORS configuration
+# CORS configuration - supports both local dev and production
+FRONTEND_URL = os.getenv("FRONTEND_URL", "")
+allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:3000",
+]
+# Add production frontend URL if set
+if FRONTEND_URL:
+    allowed_origins.append(FRONTEND_URL)
+# Add common Netlify/Vercel patterns
+allowed_origins.extend([
+    "https://revenueradar.netlify.app",
+    "https://revenue-radar.netlify.app",
+])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
