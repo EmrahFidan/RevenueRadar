@@ -40,6 +40,8 @@ if FRONTEND_URL:
 allowed_origins.extend([
     "https://revenueradar.netlify.app",
     "https://revenue-radar.netlify.app",
+    "https://frontend-evr0iho1s-emrahfidans-projects.vercel.app",
+    "https://revenueradar.vercel.app",
 ])
 
 app.add_middleware(
